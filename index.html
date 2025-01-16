@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <title>Wetter App</title>
+        <!-- Verlinkung der CSS-Datei -->
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- Icons für die App -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    </head>
+    <body>
+         <main>
+            <div>
+                <!-- Suchleiste für die Stadt -->
+                <div class="weather-container search-weather-container">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Geben Sie eine Stadt, Land ein">
+                </div>
+                
+                <!-- Aktuelles Wetter -->
+                <div class="weather-container current-weather-container">
+                    <div class="current-weather-header">
+                        <div class="current-weather-icon">
+                            <!-- Bild für das aktuelle Wetter -->
+                            <img src="" alt="Wetter-Icon">
+                        </div>
+                        <div class="current-weather-info">
+                            <!-- Temperatur und Wetterbeschreibung -->
+                            <p class="current-weather-temp"></p>
+                            <p class="current-weather-title"></p>
+                        </div>
+                    </div>
+                    
+                    <div class="current-weather-footer">
+                        <!-- Standort -->
+                        <p class="current-weather-location">
+                            <i class="fa-solid fa-cloud fa-fw"></i>
+                            <span></span>
+                        </p>
+                        <!-- Datum -->
+                        <p class="current-weather-date">
+                            <i class="fa-solid fa-calendar-days fa-fw"></i> 
+                            <span></span>
+                        </p>
+                        <!-- Uhrzeit -->
+                        <p class="current-weather-time">
+                            <i class="fa-solid fa-clock fa-fw"></i> 
+                            <span></span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Stündliche Vorhersage -->
+                <div class="weather-container hourly-forecast-container">
+                    <div class="hourly-forecast-container-inner" id="hourly-forecast-container-inner">
+                        <!-- Stündliche Daten kommen hier rein -->
+                    </div>
+                </div>
+
+                <!-- Empfohlene Aktivität -->
+                <div class="weather-container activity-container">
+                    <h3>Empfohlene Aktivität:</h3>
+                    <!-- Text mit Aktivitätsvorschlag -->
+                    <p id="activity">Warten auf Wetterdaten...</p>
+                </div>
+
+                <!-- Details wie Wind, Luftdruck -->
+                <div class="weather-container weather-details-container">
+                    <h3>Wetterdetails:</h3>
+                    <p class="wind-speed">Windgeschwindigkeit: <span>0</span> m/s</p>
+                    <p class="humidity">Luftfeuchtigkeit: <span>0</span> %</p>
+                    <p class="pressure">Luftdruck: <span>0</span> hPa</p>
+                </div>
+
+                <!-- Wöchentliche Vorhersage -->
+                <div class="weather-container forecast-weather-container"></div>
+            </div>
+         </main>
+        <!-- Skripte für Icons und Logik -->
+        <script src="icon.js"></script>
+        <script src="logic.js"></script>
+    </body>
+</html>

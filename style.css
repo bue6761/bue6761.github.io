@@ -1,0 +1,179 @@
+/* Allgemeine CSS-Variablen */
+:root {
+    background-color: #00d6f9; /* Hintergrundfarbe der gesamten App */
+    --font-color: rgb(254, 254, 254); /* Standard-Schriftfarbe */
+    --border-radius: 25px; /* Radius für abgerundete Ecken */
+    --small-padding: 15px; /* Kleinere Abstände */
+    --big-padding: 20px; /* Größere Abstände */
+}
+
+/* Grundlegende Stile für verschiedene Elemente */
+html,
+body,
+main,
+input,
+p,
+hr {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Einheitliche Schriftart */
+    padding: 0; /* Kein zusätzlicher Innenabstand */
+    margin: 0; /* Kein zusätzlicher Außenabstand */
+    color: var(--font-color); /* Schriftfarbe aus Variablen */
+}
+
+/* Hintergrundfarbe über eine CSS-Variable definieren */
+html {
+    --background-color: var(--background-color);
+}
+
+/* Hauptcontainer für die App */
+main {
+    display: flex;
+    flex-direction: column; /* Inhalte untereinander anordnen */
+    align-items: center; /* Inhalte zentrieren */
+    max-width: 600px; /* Maximale Breite des Containers */
+    margin: 0 auto; /* Zentrierung des Hauptcontainers */
+    padding: 20px; /* Innenabstand */
+}
+
+/* Linie für die Trennung von Abschnitten */
+hr {
+    opacity: 0.4; /* Transparenz der Linie */
+    margin: var(--small-padding); /* Abstände um die Linie */
+}
+
+/* Eingabefeld für die Suche */
+input {
+    background-color: transparent; /* Kein Hintergrund im Eingabefeld */
+    border: none; /* Keine Rahmenlinien */
+    width: calc(100vw - 30px); /* Breite des Feldes anpassen */
+    font-size: 1.25em; /* Schriftgröße */
+}
+
+/* Container für Wetterinformationen */
+.weather-container {
+    margin: var(--small-padding); /* Außenabstand */
+    padding: var(--big-padding); /* Innenabstand */
+    border-radius: var(--border-radius); /* Abgerundete Ecken */
+    max-width: 440px; /* Maximale Breite */
+    width: calc(100vw - var(--small-padding) * 2 - var(--big-padding)); /* Dynamische Breite */
+    background-image: linear-gradient(to right bottom, #31f4eb, #00e6f4, #00d6f9, #00c5fa, #00b4f6); /* Farbverlauf als Hintergrund */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Schatteneffekt */
+}
+
+/* Hover-Effekt für den Wettercontainer */
+.weather-container:hover {
+    transform: translateY(-5px); /* Hebt den Container leicht an */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animationsdauer */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Stärkerer Schatten bei Hover */
+}
+
+/* Container für die Suchleiste */
+.search-weather-container {
+    display: flex; /* Inhalte nebeneinander anordnen */
+    align-items: center; /* Vertikale Ausrichtung */
+    gap: calc(var(--big-padding) / 2); /* Abstand zwischen Elementen */
+}
+
+/* Platzhalterstil im Eingabefeld */
+.search-weather-container input::placeholder {
+    color: rgba(0, 0, 0, 0.522); /* Transparente Schriftfarbe */
+    font-size: 1.0em; /* Schriftgröße */
+}
+
+/* Fokus-Effekt für das Eingabefeld */
+.search-weather-container input:focus {
+    outline: none; /* Entfernt den Standardfokus */
+    border-bottom: 2px solid #00c5fa; /* Untere Rahmenlinie bei Fokus */
+    transition: border-color 0.2s; /* Animationsdauer */
+}
+
+/* Wettervorhersage-Container für 7 Tage */
+.forecast-weather-container {
+    display: grid; /* Rasterlayout */
+    grid-template-columns: auto auto auto auto; /* 4 Spalten */
+    justify-content: space-between; /* Gleicher Abstand zwischen Spalten */
+    font-size: 1.15em; /* Schriftgröße */
+    gap: var(--small-padding); /* Abstand zwischen Elementen */
+    overflow-y: scroll; /* Vertikales Scrollen erlauben */
+    height: 346px; /* Höhe des Containers */
+}
+
+/* Aktuelle Wetterinformationen */
+.current-weather-container {
+    display: flex; /* Flexbox-Layout */
+    flex-direction: column; /* Inhalte untereinander */
+    justify-content: space-between; /* Gleichmäßige Verteilung */
+}
+
+/* Header mit Icon und Titel */
+.current-weather-header {
+    display: flex; /* Inhalte nebeneinander */
+    align-items: center; /* Zentrierung */
+    gap: 10px; /* Abstand zwischen Icon und Titel */
+}
+
+/* Icon für das aktuelle Wetter */
+.current-weather-icon img {
+    width: 100px; /* Breite des Icons */
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2)); /* Schatteneffekt */
+}
+
+/* Aktuelle Temperatur */
+.current-weather-temp {
+    font-size: 3.0em; /* Schriftgröße */
+}
+
+/* Titel der aktuellen Wetterbedingungen */
+.current-weather-title {
+    font-size: 1.8em; /* Schriftgröße */
+}
+
+/* Footer mit zusätzlichen Infos */
+.current-weather-footer {
+    margin-top: var(--big-padding); /* Abstand nach oben */
+    font-size: 1.1em; /* Schriftgröße */
+}
+
+/* Datum und Standortangabe */
+.current-weather-location,
+.current-weather-date {
+    font-size: 1em; /* Schriftgröße */
+    margin-bottom: var(--small-padding); /* Abstand nach unten */
+}
+
+/* Container für stündliche Wettervorhersage */
+.hourly-forecast-container {
+    margin-top: 20px; /* Abstand nach oben */
+}
+
+.hourly-forecast-container-inner {
+    display: flex; /* Horizontales Layout */
+    overflow-x: auto; /* Horizontal scrollen */
+    padding: 10px 0; /* Innenabstand */
+    gap: 10px; /* Abstand zwischen Items */
+}
+
+/* Einzelne Elemente der stündlichen Vorhersage */
+.hourly-forecast-item {
+    text-align: center; /* Zentrierung der Inhalte */
+    width: 80px; /* Breite des Items */
+    padding: 10px; /* Innenabstand */
+    border-radius: 8px; /* Abgerundete Ecken */
+    background-color: rgba(254, 254, 254, 0.149); /* Transparenter Hintergrund */
+}
+
+/* Icons für stündliche Vorhersage */
+.hourly-forecast-item img {
+    width: 40px; /* Breite des Icons */
+    height: 40px; /* Höhe des Icons */
+}
+
+/* Uhrzeit im stündlichen Wetter */
+.hourly-forecast-item .hour {
+    font-size: 14px; /* Schriftgröße */
+}
+
+/* Temperatur im stündlichen Wetter */
+.hourly-forecast-item .temp {
+    font-size: 18px; /* Schriftgröße */
+}
